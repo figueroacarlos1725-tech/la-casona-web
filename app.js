@@ -1,7 +1,7 @@
 const events = {
   dale: {
-    id: 'dale', artist: "Dale Q’ Va", slug: 'dale-q-va', dateShort: '03', month: 'OCT',
-    date: 'Sábado 3 de octubre · 23:59', place: 'La Casona · San Antonio, FME',
+    id: 'dale', artist: "Dale Q’ Va", slug: 'dale-q-va', dateShort: '11', month: 'OCT',
+    date: '11 de octubre · 23:59', place: 'La Casona · San Antonio, FME',
     tag: 'Anticipadas disponibles', theme: '', photo:'assets/dale-q-va.jpg', credit:'Foto: El Doce', description: 'Una noche a puro cuarteto para cantar, bailar y vivir todos sus éxitos en el templo de La Casona.',
     sectors: [
       { id:'general', name:'General · 1ª tanda', note:'Acceso a pista general', price:15000, left:420 },
@@ -10,8 +10,8 @@ const events = {
     ]
   },
   ulises: {
-    id:'ulises', artist:'Ulises Bueno', slug:'ulises-bueno', dateShort:'17', month:'OCT',
-    date:'Sábado 17 de octubre · 23:59', place:'La Casona · San Antonio, FME',
+    id:'ulises', artist:'Ulises Bueno', slug:'ulises-bueno', dateShort:'', month:'',
+    date:'Fecha a confirmar', place:'La Casona · San Antonio, FME',
     tag:'Próximamente', theme:'ulises', photo:'assets/ulises-bueno.jpg', credit:'Foto: La Popu / Cadena 3', description:'El Flaco vuelve a La Casona para una noche inolvidable de emoción, clásicos y cuarteto del bueno.',
     sectors: [
       { id:'general', name:'General · Preventa', note:'Acceso a pista general', price:20000, left:650 },
@@ -107,7 +107,7 @@ const serviceCards=[
 ];
 function getLeads(){return JSON.parse(localStorage.getItem('lacasona-leads')||'[]')}
 function saveLead(data){const leads=getLeads();leads.push({id:'LC-'+Date.now().toString(36).toUpperCase(),status:'NEW',createdAt:new Date().toISOString(),...data});localStorage.setItem('lacasona-leads',JSON.stringify(leads))}
-function eventV2(e){const from=Math.min(...e.sectors.map(s=>s.price));return `<article class="v2-event-card"><button class="v2-event-image" data-detail="${e.id}"><img src="${e.photo}" alt="${e.artist}"><span class="v2-date"><small>${e.month}</small><b>${e.dateShort}</b></span><span class="v2-status ${e.tag.includes('disponibles')?'hot':''}">${e.tag}</span></button><div><small>${e.place}</small><h3>${e.artist}</h3><p>Desde ${money(from)}</p><button class="premium-button" data-event="${e.id}">${uiIcon('ticket')}<span>COMPRAR ENTRADAS</span>${uiIcon('arrow')}</button></div></article>`}
+function eventV2(e){const from=Math.min(...e.sectors.map(s=>s.price));return `<article class="v2-event-card"><button class="v2-event-image" data-detail="${e.id}"><img src="${e.photo}" alt="${e.artist}">${e.dateShort?`<span class="v2-date"><small>${e.month}</small><b>${e.dateShort}</b></span>`:''}<span class="v2-status ${e.tag.includes('disponibles')?'hot':''}">${e.tag}</span></button><div><small>${e.place}</small><h3>${e.artist}</h3><p>${e.id==='ulises'?'Fecha a confirmar':`Desde ${money(from)}`}</p><button class="premium-button" data-event="${e.id}">${uiIcon('ticket')}<span>${e.id==='ulises'?'VER NOVEDADES':'COMPRAR ENTRADAS'}</span>${uiIcon('arrow')}</button></div></article>`}
 function homeV2(){
   const evs=Object.values(events);
   return `<div class="home-v2">
