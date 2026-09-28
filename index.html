@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="description" content="La Casona · 40 años haciendo historia. Eventos y entradas anticipadas." />
+  <title>La Casona · 40 años</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="wallet.css?v=1" />
+  <link rel="stylesheet" href="social-news.css?v=3" />
+  <link rel="stylesheet" href="brand-v2.css?v=3" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="demo-banner">PROTOTIPO INTERACTIVO · FECHAS Y PRECIOS ILUSTRATIVOS</div>
+
+  <header class="topbar">
+    <button class="menu-toggle" data-menu-toggle aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    <button class="brand" data-route="home" aria-label="Ir al inicio">
+      <img src="assets/logo-header-transparent-v2.png" alt="La Casona" />
+      <span><b>LA CASONA</b><small>40 años haciendo historia</small></span>
+    </button>
+    <nav class="desktop-nav" aria-label="Principal">
+      <button data-route="home">Inicio</button>
+      <button data-scroll="eventos">Eventos</button>
+      <button data-scroll="hoy">La Casona</button>
+      <button data-scroll="servicios">Productora</button>
+      <button data-scroll="artistas">Artistas</button>
+      <button data-lead-type="VENUE_RENTAL">Alquilar</button>
+      <button data-scroll="contacto">Contacto</button>
+    </nav>
+    <button class="header-ticket premium-button" data-event="dale" aria-label="Comprar entradas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5 9.5 3H21v11.5L14.5 21 3 9.5Z"/><circle cx="16.5" cy="7.5" r="1.5"/></svg><span>ENTRADAS</span></button>
+  </header>
+  <aside class="mobile-drawer" data-mobile-drawer aria-hidden="true"><button data-close-menu>×</button><img src="assets/logo-la-casona.png" alt="La Casona"><nav><button data-route="home">Inicio</button><button data-scroll="eventos">Eventos</button><button data-scroll="hoy">La Casona hoy</button><button data-scroll="servicios">Productora</button><button data-scroll="artistas">Artistas</button><button data-lead-type="VENUE_RENTAL">Alquilar el lugar</button><button data-scroll="contacto">Contacto</button><button data-route="wallet">Mi billetera</button></nav></aside>
+
+  <main id="app" aria-live="polite"></main>
+
+  <nav class="mobile-nav" aria-label="Navegación móvil">
+    <button data-route="home"><span><svg viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v9H7v-6h10v6"/></svg></span>Inicio</button>
+    <button data-scroll="eventos"><span><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4m8-4v4M4 10h16"/></svg></span>Eventos</button>
+    <button class="buy-nav" data-event="dale"><span><svg viewBox="0 0 24 24"><path d="M3 9.5 9.5 3H21v11.5L14.5 21 3 9.5Z"/><circle cx="16.5" cy="7.5" r="1.5"/></svg></span>Entradas</button>
+    <button data-scroll="reels"><span><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="m10 9 5 3-5 3V9Z"/></svg></span>Reels</button>
+    <button data-route="wallet"><span class="mobile-wallet-icon"><svg viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4H18a2 2 0 0 1 2 2v2H7a3 3 0 0 0 0 6h13v2a2 2 0 0 1-2 2H6.5A2.5 2.5 0 0 1 4 15.5v-9Z"/><path d="M7 8h13v6H7a3 3 0 1 1 0-6Z"/></svg></span>Billetera</button>
+  </nav>
+
+  <div id="modal-root"></div>
+  <div id="toast" role="status"></div>
+  <script src="app.js?v=9"></script>
+</body>
+</html>
